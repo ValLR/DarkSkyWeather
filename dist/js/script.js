@@ -20278,11 +20278,17 @@ $(document).ready(function(){
  		})
  		/*			url:'https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/'+lat+','+long+'', dejandola así, no me dejaba acceder a la api*/
  		.done(function(response){
- 			console.log(response.temperature)
- 			console.log(response.windSpeed);
- 			console.log(response.humidity);
- 			console.log(response.uvIndex);
- 			console.log(response.pressure)
+ 			console.log("done")
+ 			var originalT = response.currently.apparentTemperature;
+ 			console.log(originalT);
+ 			var wind = response.currently.windSpeed;
+ 			console.log(wind);
+ 			var humidity = response.currently.humidity;
+ 			console.log(humidity);
+ 			var uvIndex = response.currently.uvIndex;
+ 			console.log(uvIndex);
+ 			var pressure = response.currently.pressure;
+ 			console.log(pressure);
  		})
  	}
 })
