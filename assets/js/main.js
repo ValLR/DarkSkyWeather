@@ -40,7 +40,7 @@ $(document).ready(function(){
  			$("#dailyContent").append(`
 				<div class="row">
 					<div class="img s12 col center-align">
-						<img class= "icon" src="dist/img/`+icon+`.png" alt="">
+						<img class= "img-responsive icon" src="dist/img/`+icon+`.png" alt="">
 					</div>
 				</div>
 				<div class="row">
@@ -83,6 +83,16 @@ $(document).ready(function(){
 
  				`
  				)
+
+ 			//para la semana
+ 			response.daily.response.forEach(function(e){
+ 				var minF = e.apparentTemperatureMin;
+ 				var maxF = e.apparentTemperatureMax;
+ 				var icon = e.icon;
+ 				console.log(minF);
+ 				console.log(maxF);
+ 				console.log(icon);
+ 			})
  		})
  	}
 })
