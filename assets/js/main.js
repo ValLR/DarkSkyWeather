@@ -1,4 +1,27 @@
 $(document).ready(function(){
+/*fondo
+	$(function () {
+		$.ajax({
+		    url: "https://api.flickr.com/services/rest/",
+		    data: {
+		        method: "flickr.photos.search",
+		        api_key: "9f57617f1a694b2d02fd4d0474b6357e",
+		        tags: "weather",
+		        format: "json",
+		        nojsoncallback: 1
+		    },
+		    success: function (response) {
+		    console.log(response)
+		        $.each(response.photos.photo, function (index, value) {
+		            //console.log(value);
+		          var url = 'https://farm' + value.farm + '.staticflickr.com/' + value.server + '/' + value.id + '_' + value.secret + '.jpg';
+		          var img = $('<img>').attr({src: url});
+		          $("body").append(img);
+		        });
+		    }
+		});
+	})
+*/
 //Función para geolocalización
 
 	function getLocation(){
@@ -86,6 +109,28 @@ $(document).ready(function(){
 				</div>				
  				`
  				)
+ 		//weekly
+ 		response.daily.response.forEach(function(e){
+ 			var minF = e.apparentTemperatureMin;
+ 			var maxF = e.apparentTemperatureMax;
+ 			var minC= ((minF-32)* 5/9).toFixed(1);
+ 			var maxC= ((maxF-32)* 5/9).toFixed(1);
+ 			var icon = e.icon;
+ 			console.log(minC);
+ 			console.log(maxC);
+ 			console.log(icon);
+ 			$("#weeklyContent").append(`
+				<div class="row week">
+					<div class="col s6 day left-align">
+						<img src="dist/img/`+ icon +`.png" alt="" class="img-responsive week-icon"><p class="day">Monday</p>
+					</div>
+					<div class="col s6 text right-align">
+						<p>`+ maxC +`º - `+ minC +`º</p>
+					</div>
+				</div>				
+
+ 				`)
+ 		});
 
  		})
 

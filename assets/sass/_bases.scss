@@ -1,0 +1,29 @@
+body{
+	@include reinicia();
+	background: url(../../dist/img/bridge.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover;
+	.content{
+		font-size:20px;
+		padding-top:20px;
+		#dailyContent{
+	    	background:rgb(0,0,0);
+	    	background:rgba(0,0,0,.75);
+	    	*background:transparent;
+	    	*filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#BF000000,endColorStr=#BF000000);
+	    	*-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF000000,endColorstr=#BF000000)";
+	    	padding:10px;
+			#semana{
+				margin-top:0px;
+			}
+
+		}
+	}
+}
+#semana{
+	background-color:#E4E4E4;
+	color:black;
+	font-weight:bolder;
+}
