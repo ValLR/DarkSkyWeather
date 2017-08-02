@@ -27,3 +27,16 @@ body{
 	color:black;
 	font-weight:bolder;
 }
+#back{
+	background-color:#E4E4E4;
+	color:black;
+	font-weight:bolder;	
+}
+#weeklyContent{
+	background:rgb(0,0,0);
+	background:rgba(0,0,0,.75);
+	*background:transparent;
+	*filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#BF000000,endColorStr=#BF000000);
+	*-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF000000,endColorstr=#BF000000)";
+	padding:10px;	
+}
