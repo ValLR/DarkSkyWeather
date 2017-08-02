@@ -20254,5 +20254,18 @@ if (jQuery) {
 })(jQuery);
 
 $(document).ready(function(){
-	alert("yeaah")
-});
+	  function getLocation(){
+      if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(getPosition);
+      }else{
+          alert("Geolocation is not supported by this browser.");
+      }
+      function getPosition(position){
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            console.log(lat,long);
+        }
+    }
+ 	getLocation();
+
+})
