@@ -8,20 +8,24 @@ $(document).ready(function(){
     	else{
         	alert("Tu navegador no soporta geolocalización");
         }
-    }
- 	getLocation();
+
  //api call
+
  	function getPosition(position){
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
         console.log(lat,long);
-        
+    }
+}
+ 	getLocation();
+
  		$.ajax({
-			url:'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/'+lat+','+long+'',
+			url:'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/-33.4143,-70.6608',
 			type: 'GET',
 			datatype: 'jsonp',
  		})
- 		/*			url:'https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/'+lat+','+long+'', dejandola así, no me dejaba acceder a la api*/
+ 		/*Al principio tenía la función get position rodeando toda la función para poder usar la latitud y longitud extraídas en la así: url:'https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/'+lat+','+long+'',
+ 		pero de repente dejó de correr, así que la dejé fija*/
  		.done(function(response){
  			console.log("done")
  			var originalT = response.currently.apparentTemperature;
@@ -80,19 +84,9 @@ $(document).ready(function(){
 						<p>`+pressure+` hPa</p>
 					</div>
 				</div>				
-
  				`
  				)
 
- 			//para la semana
- 			response.daily.response.forEach(function(e){
- 				var minF = e.apparentTemperatureMin;
- 				var maxF = e.apparentTemperatureMax;
- 				var icon = e.icon;
- 				console.log(minF);
- 				console.log(maxF);
- 				console.log(icon);
- 			})
  		})
- 	}
+
 })

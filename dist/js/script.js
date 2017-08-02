@@ -20263,16 +20263,19 @@ $(document).ready(function(){
     	else{
         	alert("Tu navegador no soporta geolocalización");
         }
-    }
- 	getLocation();
+
  //api call
+
  	function getPosition(position){
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
         console.log(lat,long);
-        
+    }
+}
+ 	getLocation();
+
  		$.ajax({
-			url:'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/'+lat+','+long+'',
+			url:'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/012e423aa82fad1b993c11b2de5e0fae/-33.4143,-70.6608',
 			type: 'GET',
 			datatype: 'jsonp',
  		})
@@ -20295,7 +20298,7 @@ $(document).ready(function(){
  			$("#dailyContent").append(`
 				<div class="row">
 					<div class="img s12 col center-align">
-						<img class= "icon" src="dist/img/`+icon+`.png" alt="">
+						<img class= "img-responsive icon" src="dist/img/`+icon+`.png" alt="">
 					</div>
 				</div>
 				<div class="row">
@@ -20335,9 +20338,9 @@ $(document).ready(function(){
 						<p>`+pressure+` hPa</p>
 					</div>
 				</div>				
-
  				`
  				)
+
  		})
- 	}
+
 })
