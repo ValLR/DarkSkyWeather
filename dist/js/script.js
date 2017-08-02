@@ -20289,6 +20289,55 @@ $(document).ready(function(){
  			console.log(uvIndex);
  			var pressure = response.currently.pressure;
  			console.log(pressure);
+ 			var celsius = (originalT-32 * 5/9).toFixed(1);
+ 			var icon = response.currently.icon;
+ 			console.log(icon);
+ 			$("#dailyContent").append(`
+				<div class="row">
+					<div class="img s12 col center-align">
+						<img class= "icon" src="dist/img/`+icon+`.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="center-align col s12">
+						<h3>`+celsius+`º</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="left-align col s6">
+						<p>Wind</p>
+					</div>
+					<div class="right-align col s6">
+						<p>`+wind+` m/s</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="s6 left-align col">
+						<p>Humidity</p>
+					</div>
+					<div class="s6 right-align col">
+						<p>`+humidity+`%</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="s6 col left-align">
+						<p>UV Index</p>
+					</div>
+					<div class="s6 col right-align">
+						<p>`+uvIndex+`</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="s6 col left-align">
+						<p>Pressure</p>
+					</div>
+					<div class="col s6 right-align">
+						<p>`+pressure+` hPa</p>
+					</div>
+				</div>				
+
+ 				`
+ 				)
  		})
  	}
 })
